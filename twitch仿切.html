@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding-top: 50px;
+            padding-left: 50px;
+            /* height: 5000px; */
+        }
+
+        .nav-top {
+            width: 100%;
+            height: 50px;
+            background-color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgb(216, 214, 214);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .discover {
+            width: 300px;
+            height: 30px;
+            background-color: white;
+            display: flex;
+            justify-content: space-around;
+            line-height: 30px;
+            font-weight: 600;
+        }
+
+        /* discover開始 */
+
+        .logo {
+            width: 30px;
+            height: 30px;
+            background-image: url(https://assets.help.twitch.tv/Glitch_Purple_RGB.png);
+            background-size: cover;
+        }
+
+        .more {
+            width: 30px;
+            background-image: url(https://img.88icon.com/download/jpg/20200808/634595fab4b49969472940d9ce5a5e23_512_512.jpg!88bg);
+            background-size: cover;
+        }
+
+        /* discover結束 */
+
+        .search {
+            width: 360px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* search開始 */
+
+        .input {
+            width: 320px;
+            height: 100%;
+            background-color: rgb(216, 214, 214);
+            outline: none;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-btn {
+            width: 40px;
+            height: 100%;
+            background-image: url(https://img.lovepik.com/element/40027/8528.png_860.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* search結束 */
+
+        .option {
+            width: 190px;
+            height: 30px;
+            background-color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* option開始 */
+
+        .notice {
+            width: 20px;
+            height: 20px;
+            background-image: url(https://data.ac-illust.com/data/thumbnails/cd/cd122d5e60a0b23ad64b749344410505_t.jpeg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .login {
+            width: 46px;
+            height: 31px;
+            border-radius: 5px;
+            background-color: rgb(216, 214, 214);
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .registered {
+            width: 46px;
+            height: 31px;
+            border-radius: 5px;
+            background-color: purple;
+            font-size: 14px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .account {
+            width: 20px;
+            height: 20px;
+            background-image: url(https://png.pngtree.com/png-clipart/20191120/original/pngtree-cyber-man-icon-isolated-on-abstract-background-png-image_5065541.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* option結束 */
+
+        .recommend-channel {
+            width: 50px;
+            height: calc(100vh - 50px);
+            background-color: rgb(216, 214, 214);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            position: fixed;
+            top: 50px;
+            left: 0;
+        }
+
+        /* recommend-channel開始 */
+
+
+        .channel {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            margin-top: 10px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #arrow {
+            background-color: unset;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        #camera {
+            background-image: url(https://www.pawbopet.com/tw/skin/frontend/pawbo/packages/cms/static/media/video.6b39b946.svg);
+            background-color: unset;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* recommend-channel結束 */
+
+        /* main區域 */
+        main {
+            padding: 0 30px;
+        }
+
+        .container {
+            width: 100%;
+            padding-top: 30px;
+        }
+
+        h1 {
+            width: 100%;
+            font-size: 54px;
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            width: 100%;
+            font-size: 24px;
+            color: grey;
+            margin: 0;
+            margin-bottom: 45px;
+        }
+
+        .all-game {
+            width: 100%;
+            margin: 0;
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-between;
+        }
+
+        /* game-card開始 */
+
+        .game-card {
+            width: 293px;
+            height: 70px;
+            border-radius: 10px;
+            background-color: rgb(218, 216, 216);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px 0;
+        }
+
+        .game-card .img {
+            width: 40px;
+            height: 50px;
+            background-color: blue;
+            margin-right: 10px;
+        }
+
+        .game-card .text {
+            width: 225px;
+            height: 50px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .game-card .text .title {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .game-card .text .condition {
+            font-size: 12px;
+            color: gray;
+        }
+
+        .game-card .text .live-icon {
+            width: 40px;
+            height: 20px;
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            font-size: 12px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* game-card結束 */
+
+        h2 {
+            width: 100%;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        p {
+            width: 100%;
+            font-size: 18px;
+            color: grey;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+
+        .video {
+            width: 100%;
+            height: 490px;
+        }
+
+        /* video .highlight開始 */
+
+        .video .highlight {
+            width: 590px;
+            float: left;
+        }
+
+        .highlight-thumbnail {
+            width: 100%;
+            height: 330px;
+            margin-bottom: 10px;
+            background-image: url(https://cdn2.ettoday.net/images/2302/d2302355.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+        }
+
+        .highlight-target {
+            width: 100%;
+            height: 34px;
+            display: flex;
+            align-items: center;
+        }
+
+        .highlight-target-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            margin-right: 10px;
+        }
+
+        .highlight-target-text {
+            color: blueviolet;
+        }
+
+        .highlight-title {
+            width: 100%;
+            font-size: 21px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        .highlight-text {
+            width: 100%;
+            font-size: 18px;
+            color: gray;
+        }
+
+        .highlight .live-icon {
+            width: 40px;
+            height: 20px;
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            font-size: 12px;
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .highlight .viewer {
+            height: 20px;
+            background-color: black;
+            font-size: 14px;
+            color: white;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            opacity: 0.8;
+        }
+
+        .highlight-target-ellipsis {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+            /* 旋轉 */
+            transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            /* 旋轉 */
+        }
+
+        /* video .highlight結束 */
+
+        .other {
+            width: calc(100% - 600px);
+            float: left;
+            margin-left: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-between;
+        }
+
+        /* video-card開始 */
+
+        .video-card {
+            width: 290px;
+            height: 260px;
+        }
+
+        .thumbnail {
+            width: 100%;
+            height: 165px;
+            background-image: url(https://img.4gamers.com.tw/ckfinder/images/Panda/LOL/2017%20Worlds/170925-playin-d3-2-3.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            position: relative;
+        }
+
+        .game-target {
+            width: 100%;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .game-target-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+            margin-right: 10px;
+
+        }
+
+        .game-target-name {
+            color: blueviolet;
+        }
+
+        .game-target-ellipsis {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: 0;
+            font-weight: bold;
+            /* 旋轉 */
+            transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -webkit-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            /* 旋轉 */
+        }
+
+        .video-card .title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .video-card .description {
+            color: grey;
+            font-size: 12px;
+        }
+
+        .video-card .live-icon {
+            width: 40px;
+            height: 20px;
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            font-size: 12px;
+            position: absolute;
+            top: 10px;
+            left: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-card .viewer {
+            height: 20px;
+            background-color: black;
+            font-size: 14px;
+            color: white;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            opacity: 0.8;
+        }
+
+        /* video-card結束 */
+
+        @media (max-width:1330px){
+            .video .highlight{
+                width: 290px;
+                margin-bottom: 5px;
+                margin-right: 5px;
+            }
+
+            .other{
+                width: calc(100% - 300px);
+                float: none;
+            }
+
+            .highlight-thumbnail{
+                width: 290px;
+                height: 165px;
+            }
+
+            .highlight-target{
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            .highlight-title{
+                margin-bottom: 5px;
+                font-size: 14px;
+                width: 100%;
+            }
+            .highlight-text{
+                font-size: 12px;
+                width: 100%;
+            }
+
+        }
+
+        @media(max-width:900px){
+            .video{
+                width: 100%;
+                height: unset;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .other{
+                width: 290px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav>
+        <div class="nav-top">
+            <div class="discover">
+                <div class="logo"></div>
+                <div class="browse">瀏覽</div>
+                <div class="gaming">電競</div>
+                <div class="music">音樂</div>
+                <div class="more"></div>
+            </div>
+
+            <div class="search">
+                <input type="text" class="input" placeholder="搜尋">
+                <div class="search-btn"></div>
+            </div>
+
+            <div class="option">
+                <div class="notice"></div>
+                <div class="login">登入</div>
+                <div class="registered">註冊</div>
+                <div class="account"></div>
+            </div>
+
+        </div>
+
+        <div class="recommend-channel">
+            <div class="channel" id="arrow">⇥</div>
+            <div class="channel" id="camera"></div>
+            <div class="channel"></div>
+            <div class="channel"></div>
+            <div class="channel"></div>
+            <div class="channel"></div>
+            <div class="channel"></div>
+            <div class="channel"></div>
+            <div class="channel"></div>
+            <div class="channel"></div>
+            <div class="channel"></div>
+            <div class="channel"></div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+
+            <h1>電競</h1>
+            <h3>即時賽況、賽事精華和您最愛的職業玩家都在這裡</h3>
+
+            <div class="all-game">
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="img"></div>
+                    <div class="text">
+                        <div class="title">英雄聯盟</div>
+                        <div class="condition">League of Legends</div>
+                        <div class="live-icon">LIVE</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <h2>實況中的對戰</h3>
+                <p>我們認為您會喜歡的最精彩 Live 比賽和對戰</p>
+
+                <div class="video">
+                    <div class="highlight">
+                        <div class="highlight-thumbnail">
+                            <div class="live-icon">LIVE</div>
+                            <div class="viewer">觀看人數:9,999</div>
+                        </div>
+                        <div class="highlight-target">
+                            <div class="highlight-target-icon"></div>
+                            <div class="highlight-target-text">LPL</div>
+                            <div class="highlight-target-ellipsis">⋯</div>
+                        </div>
+                        <div class="highlight-title">EDG vs. TES - Day 8 Playoff Round 4 | LPL Spring Split (2021)</div>
+                        <div class="highlight-text">League of Legends • 英文</div>
+                    </div>
+
+                    <div class="other">
+
+                        <div class="video-card">
+                            <div class="thumbnail">
+                                <div class="live-icon">LIVE</div>
+                                <div class="viewer">觀眾人數:9,999</div>
+                            </div>
+                            <div class="game-target">
+                                <div class="game-target-icon"></div>
+                                <div class="game-target-name">OgamingLOL</div>
+                                <div class="game-target-ellipsis">⋯</div>
+                            </div>
+                            <div class="title">LPL Spring Playoff - EDG vs TES - Bo5 !LPL</div>
+                            <div class="description">League of Legends • 法文</div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="thumbnail">
+                                <div class="live-icon">LIVE</div>
+                                <div class="viewer">觀眾人數:9,999</div>
+                            </div>
+                            <div class="game-target">
+                                <div class="game-target-icon"></div>
+                                <div class="game-target-name">OgamingLOL</div>
+                                <div class="game-target-ellipsis">⋯</div>
+                            </div>
+                            <div class="title">LPL Spring Playoff - EDG vs TES - Bo5 !LPL</div>
+                            <div class="description">League of Legends • 法文</div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="thumbnail">
+                                <div class="live-icon">LIVE</div>
+                                <div class="viewer">觀眾人數:9,999</div>
+                            </div>
+                            <div class="game-target">
+                                <div class="game-target-icon"></div>
+                                <div class="game-target-name">OgamingLOL</div>
+                                <div class="game-target-ellipsis">⋯</div>
+                            </div>
+                            <div class="title">LPL Spring Playoff - EDG vs TES - Bo5 !LPL</div>
+                            <div class="description">League of Legends • 法文</div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="thumbnail">
+                                <div class="live-icon">LIVE</div>
+                                <div class="viewer">觀眾人數:9,999</div>
+                            </div>
+                            <div class="game-target">
+                                <div class="game-target-icon"></div>
+                                <div class="game-target-name">OgamingLOL</div>
+                                <div class="game-target-ellipsis">⋯</div>
+                            </div>
+                            <div class="title">LPL Spring Playoff - EDG vs TES - Bo5 !LPL</div>
+                            <div class="description">League of Legends • 法文</div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="thumbnail">
+                                <div class="live-icon">LIVE</div>
+                                <div class="viewer">觀眾人數:9,999</div>
+                            </div>
+                            <div class="game-target">
+                                <div class="game-target-icon"></div>
+                                <div class="game-target-name">OgamingLOL</div>
+                                <div class="game-target-ellipsis">⋯</div>
+                            </div>
+                            <div class="title">LPL Spring Playoff - EDG vs TES - Bo5 !LPL</div>
+                            <div class="description">League of Legends • 法文</div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="thumbnail">
+                                <div class="live-icon">LIVE</div>
+                                <div class="viewer">觀眾人數:9,999</div>
+                            </div>
+                            <div class="game-target">
+                                <div class="game-target-icon"></div>
+                                <div class="game-target-name">OgamingLOL</div>
+                                <div class="game-target-ellipsis">⋯</div>
+                            </div>
+                            <div class="title">LPL Spring Playoff - EDG vs TES - Bo5 !LPL</div>
+                            <div class="description">League of Legends • 法文</div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="thumbnail">
+                                <div class="live-icon">LIVE</div>
+                                <div class="viewer">觀眾人數:9,999</div>
+                            </div>
+                            <div class="game-target">
+                                <div class="game-target-icon"></div>
+                                <div class="game-target-name">OgamingLOL</div>
+                                <div class="game-target-ellipsis">⋯</div>
+                            </div>
+                            <div class="title">LPL Spring Playoff - EDG vs TES - Bo5 !LPL</div>
+                            <div class="description">League of Legends • 法文</div>
+                        </div>
+
+                        <div class="video-card">
+                            <div class="thumbnail">
+                                <div class="live-icon">LIVE</div>
+                                <div class="viewer">觀眾人數:9,999</div>
+                            </div>
+                            <div class="game-target">
+                                <div class="game-target-icon"></div>
+                                <div class="game-target-name">OgamingLOL</div>
+                                <div class="game-target-ellipsis">⋯</div>
+                            </div>
+                            <div class="title">LPL Spring Playoff - EDG vs TES - Bo5 !LPL</div>
+                            <div class="description">League of Legends • 法文</div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+        </div>
+
+    </main>
+</body>
+
+</html>
